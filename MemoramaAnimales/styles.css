@@ -1,0 +1,206 @@
+body {
+    background-color: #E8F5E9;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    margin: 20px;
+    text-align: center;
+}
+
+.contenedor {
+    background-color: white;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 5px 20px #00000015;
+}
+
+.informacion {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+/* Tarjetas con el ajuste final de .2 cm más por lado */
+.tarjeta {
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    padding: 0 54px; /* <--- Ajustado sumando aprox .2 cm más (de 51px a 54px) */
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* Interior */
+.tarjeta-interior {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease-in-out;
+}
+
+/* Animación de giro */
+.tarjeta.volteada .tarjeta-interior {
+    transform: rotateY(180deg);
+}
+
+/* Caras */
+.cara {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #81C784;
+    border-radius: 18px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    font-size: 40px;
+}
+
+/* Frente */
+.frente {
+    background-color: #A5D6A7;
+}
+
+/* Reverso */
+.reverso {
+    background-color: #C8E6C9;
+    transform: rotateY(180deg);
+    overflow: hidden;
+    padding: 0;
+}
+
+/* Imágenes */
+.reverso img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+/* Botones */
+button {
+    background-color: #4F9460;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Adaptación automática para celulares */
+@media (max-width: 600px) {
+    .contenedor {
+        margin: 20px 10px;
+        padding: 20px 12px;
+    }
+
+    .tablero {
+        gap: 8px;
+    }
+
+    .tarjeta {
+        padding: 0 27px; /* Ajustado proporcionalmente para celulares */
+    }
+
+    .cara {
+        border-radius: 14px;
+    }
+}
+
+/* Ventanas de felicitación y prevención */
+.oculto {
+    display: none !important;
+}
+
+#modal-felicitacion,
+#modal-prevencion {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tarjeta-victoria {
+    background-color: #E8F5E9;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px #00000030;
+    animation: aparecer 0.5s ease;
+}
+
+.tarjeta-victoria h2 {
+    color: #2E7D32;
+    text-align: center;
+}
+
+.tarjeta-victoria p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.texto-educativo {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 15px 0;
+}
+
+/* Animación */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Adaptación para celular */
+@media (max-width: 600px) {
+    .tarjeta-victoria {
+        padding: 25px 15px;
+        max-width: 350px;
+    }
+
+    .tarjeta-victoria h2 {
+        font-size: 22px;
+    }
+
+    .tarjeta-victoria p {
+        font-size: 16px;
+    }
+}
