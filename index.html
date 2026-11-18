@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>¡Salvemos a los Animales!</title>
+</head>
+<body>
+    <main class="contenedor">
+        <h1>🐾 ¡SALVEMOS A LOS ANIMALES! 🐾</h1>
+        <p class="subtitulo">"¡Encuentra a los amiguitos en peligro de extinción y dales un hogar seguro!"</p>
+        
+        <div class="informacion">
+            <p>🌟 Parejas encontradas: <span id="parejas">0</span> de 6</p>
+            <p>🎯 Movimientos: <span id="movimientos">0</span></p>
+        </div>
+
+        <div id="tablero" class="tablero"></div>
+        
+        <!-- <button id="reiniciar">🔄 Volver a jugar</button>
+
+        Ventana 1: ¡Felicidades! (Se cierra solita al hacer clic en cualquier parte o mediante el script tras un momento) -->
+        <div id="modal-felicitacion" class="oculto">
+            <div class="tarjeta-victoria">
+                <h2>🎉 ¡Felicidades, Héroe de la Naturaleza! 🎉</h2>
+                <p>¡Has completado el memorama y encontrado todas las parejas de los animalitos!</p>
+            </div>
+        </div>
+
+        <!-- Ventana 2: Prevención / Educación Ambiental con el ÚNICO botón final -->
+        <div id="modal-prevencion" class="oculto">
+            <div class="tarjeta-victoria">
+                <h2>🌍 ¿Por qué debemos cuidarlos? 💚</h2>
+                <div class="texto-educativo">
+                    <p>Todos los animales forman parte de una gran cadena en la naturaleza. Si una especie desaparece, el bosque, la selva o el océano se enferman porque cada animal tiene una misión muy importante: algunos ayudan a plantar árboles, otros limpian el medio ambiente y otros mantienen el equilibrio. ¡Cuidar a los animales es cuidar nuestro propio hogar, el planeta Tierra!</p>
+                </div>
+                <button id="btn-jugar-otra-vez">¡A jugar otra vez! 🌟</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
